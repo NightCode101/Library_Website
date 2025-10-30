@@ -799,6 +799,109 @@ main {
     font-size: 1.2rem;
 }
 
+/* Responsive navbar: use a hamburger toggle on small screens so the nav doesn't push content down */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 14px;
+        align-items: center;
+        gap: 0;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+        white-space: nowrap;
+        flex: 1 1 auto;
+        margin-right: 0;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,0.12);
+        border-radius: 8px;
+        color: var(--white);
+        cursor: pointer;
+        margin-left: 12px;
+        flex: 0 0 auto;
+    }
+
+    .menu-toggle .hamburger {
+        position: relative;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        display: block;
+    }
+    .menu-toggle .hamburger::before,
+    .menu-toggle .hamburger::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        transition: 0.2s;
+    }
+    .menu-toggle .hamburger::before {
+        top: -6px;
+    }
+    .menu-toggle .hamburger::after {
+        top: 6px;
+    }
+
+    /* hide nav by default on small screens */
+    .navbar nav {
+        display: none;
+        width: 100%;
+    }
+
+    /* when navbar has 'open' class, show the nav */
+    .navbar.open nav {
+        display: block;
+    }
+
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 8px 0 0 0;
+        padding: 8px 6px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 8px;
+        max-height: calc(70vh);
+        overflow-y: auto;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 8px 6px;
+        font-size: 0.98rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none !important;
+    }
+    .navbar nav {
+        display: block !important;
+    }
+}
+
+/* Global safety: hide accidental horizontal overflow while keeping vertical scroll */
+html, body {
+    overflow-x: hidden;
+}
+
 .facility-card p {
     color: var(--text-light);
     font-size: 0.95rem;
