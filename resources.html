@@ -23,7 +23,14 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="programs.html">Programs</a></li>
-        <li><a href="resources.html" class="active">Resources</a></li>
+        <li class="dropdown">
+          <a href="resources.html" class="active dropdown-toggle" id="resourcesDropdown">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="#featured-books">Featured Books</a></li>
+            <li><a href="#databases">Medical Databases</a></li>
+            <li><a href="#references">E-References</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -34,13 +41,17 @@
 
   <main>
     <!-- Header -->
-    <section class="page-header">
-      <h1>Books & Resources</h1>
-      <p>Explore essential materials to support your medical studies and research.</p>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Books & Resources</h1>
+          <p>Explore essential materials to support your medical studies and research.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Featured Medical Books Section -->
-    <section class="resources-section">
+    <section class="resources-section" id="featured-books">
       <h2>Featured Open-Access Medical Books</h2>
       <div class="books-showcase">
 
@@ -231,13 +242,11 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-
     <!-- Resource Databases Section -->
-    <section style="padding-top: 1.5rem;" class="resources-section databases-section">
+    <section style="padding-top: 1.5rem;" class="resources-section databases-section" id="databases">
       <h2>Medical Databases &amp; Resources</h2>
       <div class="resource-grid">
         <div class="resource-card">
@@ -278,7 +287,7 @@
     </section>
 
     <!-- Free Medical E-References Section -->
-    <section style="padding-top: 1.5rem;" class="resources-section references-section">
+    <section style="padding-top: 1.5rem;" class="resources-section databases-section" id="references">
       <h2>Free Medical E-References</h2>
       <div class="resource-grid">
 
@@ -433,11 +442,136 @@
       </div>
     </section>
 
-
     <!-- Footer -->
     <footer class="footer">
       <p>© 2025 Aurora's Medical Library. All rights reserved.</p>
     </footer>
+    <script src="menu.js"></script>
+    <script src="menu.js"></script>
+    <script>
+      // Show only the selected resources section when clicking dropdown items
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get all resource section links in the dropdown
+        var sectionLinks = document.querySelectorAll('.dropdown-menu a[href^="#"]');
+        var sections = [
+          document.getElementById('featured-books'),
+          document.getElementById('databases'),
+          document.getElementById('references')
+        ];
+        // Helper to hide all sections
+        function hideAllSections() {
+          sections.forEach(function (sec) {
+            if (sec) sec.style.display = 'none';
+          });
+        }
+        // Show section by id
+        function showSection(id) {
+          hideAllSections();
+          var sec = document.getElementById(id);
+          if (sec) sec.style.display = '';
+        }
+        // Attach click listeners
+        sectionLinks.forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            var hash = this.getAttribute('href').replace('#', '');
+            showSection(hash);
+            // Optionally scroll to top of main content
+            var main = document.querySelector('main');
+            if (main) main.scrollIntoView({behavior: 'smooth'});
+            // Prevent default jump
+            e.preventDefault();
+          });
+        });
+        // On page load, show only the first section
+        hideAllSections();
+        if (sections[0]) sections[0].style.display = '';
+      });
+    </script>
+    <style>
+      /* Dropdown styles */
+      .navbar ul li.dropdown {
+        position: relative;
+      }
+
+      .navbar ul li .dropdown-toggle:after {
+        content: " ▼";
+        font-size: 0.7em;
+      }
+
+      .navbar ul li .dropdown-menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: #fff;
+        min-width: 180px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+        border-radius: 0 0 6px 6px;
+        padding: 0.5em 0;
+      }
+
+      .navbar ul li .dropdown-menu li {
+        display: block;
+      }
+
+      .navbar ul li .dropdown-menu a {
+        color: #222;
+        padding: 0.5em 1.5em;
+        display: block;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+
+      .navbar ul li .dropdown-menu a:hover {
+        background: #f0f0f0;
+      }
+
+      .navbar ul li.dropdown:hover>.dropdown-menu,
+      .navbar ul li.dropdown:focus-within>.dropdown-menu,
+      .navbar ul li.dropdown.open>.dropdown-menu {
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        .navbar ul li .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          min-width: 100%;
+        }
+      }
+    </style>
+    <script>
+      // Dropdown open on hover (desktop) and click (mobile/touch)
+      document.addEventListener('DOMContentLoaded', function () {
+        var dropdown = document.querySelector('.navbar ul li.dropdown');
+        var toggle = dropdown.querySelector('.dropdown-toggle');
+        var menu = dropdown.querySelector('.dropdown-menu');
+        // Open/close on click (mobile/touch)
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          var isOpen = dropdown.classList.contains('open');
+          // Close all dropdowns first (if you have more in future)
+          document.querySelectorAll('.navbar ul li.dropdown.open').forEach(function (d) {
+            d.classList.remove('open');
+          });
+          if (!isOpen) dropdown.classList.add('open');
+        });
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (e) {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+          }
+        });
+        // Close dropdown after clicking a dropdown-menu link
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            dropdown.classList.remove('open');
+          });
+        });
+      });
+    </script>
     <script src="menu.js"></script>
 </body>
 

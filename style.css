@@ -390,7 +390,7 @@ body {
 }
 
 .book-card {
-    background: var(--white);
+    background: var(--secondary);
     border-radius: var(--rounded-md);
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -912,7 +912,8 @@ main {
         flex-wrap: nowrap;
         flex-direction: row;
         justify-content: space-between;
-        position: relative;
+        position: sticky;
+        top: 0;
     }
 
     .logo {

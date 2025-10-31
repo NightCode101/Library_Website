@@ -20,7 +20,14 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html" class="active">Services</a></li>
         <li><a href="programs.html">Programs</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li class="dropdown">
+          <a href="resources.html" class="dropdown-toggle" id="resourcesDropdown">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html#featured-books">Featured Books</a></li>
+            <li><a href="resources.html#databases">Medical Databases</a></li>
+            <li><a href="resources.html#references">E-References</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -29,11 +36,82 @@
     </button>
   </header>
 
+  <style>
+    /* Dropdown styles */
+    .navbar ul li.dropdown {
+      position: relative;
+    }
+    .navbar ul li .dropdown-toggle:after {
+      content: " ▼";
+      font-size: 0.7em;
+    }
+    .navbar ul li .dropdown-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      z-index: 1000;
+      border-radius: 0 0 6px 6px;
+      padding: 0.5em 0;
+    }
+    .navbar ul li .dropdown-menu li {
+      display: block;
+    }
+    .navbar ul li .dropdown-menu a {
+      color: #222;
+      padding: 0.5em 1.5em;
+      display: block;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .navbar ul li .dropdown-menu a:hover {
+      background: #f0f0f0;
+    }
+    .navbar ul li.dropdown:hover > .dropdown-menu,
+    .navbar ul li.dropdown:focus-within > .dropdown-menu,
+    .navbar ul li.dropdown.open > .dropdown-menu {
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .navbar ul li .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        min-width: 100%;
+      }
+    }
+  </style>
+  <script>
+    // Dropdown open on hover and click
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdown = document.querySelector('.navbar ul li.dropdown');
+      var toggle = dropdown.querySelector('.dropdown-toggle');
+      var menu = dropdown.querySelector('.dropdown-menu');
+      // Open on click (for mobile)
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+  </script>
   <!-- Main Content -->
   <main>
-    <section class="page-header">
-      <h1>Our Services</h1>
-      <p>We offer a range of services to help you access information, build research skills, and make the most of our medical resources.</p>
+   <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Our Services</h1>
+          <p>We offer a range of services to help you access information, build research skills, and make the most of our medical resources.</p>
+        </div>
+      </div>
     </section>
 
     <section class="content">
