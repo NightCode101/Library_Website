@@ -36,34 +36,31 @@
       <p>We’re here to help — reach out for assistance, feedback, or inquiries.</p>
     </section>
 
-    <!-- Contact Section -->
-    <section class="content">
+    <!-- Contact Form Section -->
+    <section class="content contact-form-section">
       <p style="text-align:center; color:var(--text-light); margin-bottom:40px;">
         Fill out the form below or email us directly. We’ll respond as soon as possible.
       </p>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
 
-      <div class="contact-container">
-        <!-- Contact Form -->
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Your name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
 
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@example.com" required />
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
 
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </section>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h3>Library Information</h3>
-          <p><strong>Email:</strong> <a href="mailto:aurorasmedicallibrary@gmail.com">aurorasmedicallibrary@gmail.com</a></p>
-          
-          <p><strong>Office Hours:</strong><br>Monday - Friday, 8:00 AM - 5:00 PM</p>
-        </div>
+    <!-- Contact Info Section -->
+    <section class="content contact-info-section">
+      <div class="contact-info">
+        <h3>Library Information</h3>
+        <p><strong>Email:</strong> <a href="mailto:aurorasmedicallibrary@gmail.com">aurorasmedicallibrary@gmail.com</a></p>
+        <p><strong>Office Hours:</strong><br>Monday - Friday, 8:00 AM - 5:00 PM</p>
       </div>
     </section>
   </main>
