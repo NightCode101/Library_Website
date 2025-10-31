@@ -1,3 +1,57 @@
+/* === Contact Section Enhancements === */
+.contact-form .btn {
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 600;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form .btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Subtle animation and cleaner spacing */
+.contact-info {
+    background: var(--secondary);
+    padding: 30px 24px;
+    border-radius: var(--rounded-md);
+    box-shadow: var(--shadow-sm);
+    color: var(--text);
+}
+
+.contact-info p a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.contact-info p a:hover {
+    text-decoration: underline;
+}
+
+.contact-container {
+    margin-bottom: 60px;
+}
+/* Staff Members Two Column Layout (Plain) */
+.staff-members {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 32px;
+    margin: 40px 0 0 0;
+}
+.staff-member {
+    margin: 0;
+}
+@media (max-width: 700px) {
+    .staff-members {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
 :root {
     --primary: #2a5298;
     --primary-light: #3461b5;
@@ -187,10 +241,10 @@ body {
 }
 
 .feature-card {
-    background: var(--white);
-    padding: 40px 30px;
-    border-radius: var(--rounded-md);
-    box-shadow: var(--shadow-md);
+    background: var(--secondary);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -766,7 +820,7 @@ main {
 }
 
 .service-card {
-    background: var(--white);
+    background: var(--secondary);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -972,10 +1026,15 @@ body {
 .about-section {
     max-width: 900px;
     margin: 40px auto;
-    padding: 40px 10%;
-    background: #fff;
-    border-radius: var(--rounded-lg);
-    box-shadow: var(--shadow-md);
+    padding: 25px;
+    background: var(--secondary);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Add spacing between about sections for clarity */
+.about-section + .about-section {
+    margin-top: 32px;
 }
 
 .about-section h2 {
@@ -1167,6 +1226,8 @@ body {
         grid-template-columns: 1fr;
     }
 
+
+
     .page-header {
         padding: 40px 20px;
     }
@@ -1175,3 +1236,4 @@ body {
         padding: 40px 20px;
     }
 }
+
