@@ -115,7 +115,7 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    background: var(--gradient);
+    background: url('bg.jpg') center center/cover no-repeat;
     color: var(--white);
     padding: 120px 0 100px;
     text-align: center;
@@ -129,8 +129,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
-    opacity: 0.1;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    opacity: 0.65;
+    z-index: 1;
 }
 
 .hero-content {
@@ -138,7 +139,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero-text {
@@ -849,12 +850,15 @@ main {
 
 /* Responsive navbar: use a hamburger toggle on small screens so the nav doesn't push content down */
 @media (max-width: 768px) {
+
     .navbar {
         padding: 10px 14px;
         align-items: center;
         gap: 0;
         flex-wrap: nowrap;
         flex-direction: row;
+        justify-content: space-between;
+        position: relative;
     }
 
     .logo {
@@ -877,6 +881,10 @@ main {
         cursor: pointer;
         margin-left: 12px;
         flex: 0 0 auto;
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .menu-toggle .hamburger {
