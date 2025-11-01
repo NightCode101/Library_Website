@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs | Aurora's Medical Library</title>
+  <title>Programs | Aurora Medical Library</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">
-      <img src="logo.png" alt="Aurora's Medical Library Logo" style="height:40px; vertical-align:middle; margin-right:8px;">
-      Aurora's <span>Medical Library</span>
+      <img src="logo.png" alt="Aurora's Medical Library Logo"
+        style="height:40px; vertical-align:middle; margin-right:8px;">
+      Aurora <span>Medical Library</span>
     </div>
     <nav>
       <ul>
@@ -41,10 +44,12 @@
     .navbar ul li.dropdown {
       position: relative;
     }
+
     .navbar ul li .dropdown-toggle:after {
       content: " ▼";
       font-size: 0.7em;
     }
+
     .navbar ul li .dropdown-menu {
       display: none;
       position: absolute;
@@ -52,14 +57,16 @@
       top: 100%;
       background: #fff;
       min-width: 180px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       z-index: 1000;
       border-radius: 0 0 6px 6px;
       padding: 0.5em 0;
     }
+
     .navbar ul li .dropdown-menu li {
       display: block;
     }
+
     .navbar ul li .dropdown-menu a {
       color: #222;
       padding: 0.5em 1.5em;
@@ -68,14 +75,17 @@
       white-space: nowrap;
       transition: background 0.2s;
     }
+
     .navbar ul li .dropdown-menu a:hover {
       background: #f0f0f0;
     }
-    .navbar ul li.dropdown:hover > .dropdown-menu,
-    .navbar ul li.dropdown:focus-within > .dropdown-menu,
-    .navbar ul li.dropdown.open > .dropdown-menu {
+
+    .navbar ul li.dropdown:hover>.dropdown-menu,
+    .navbar ul li.dropdown:focus-within>.dropdown-menu,
+    .navbar ul li.dropdown.open>.dropdown-menu {
       display: block;
     }
+
     @media (max-width: 900px) {
       .navbar ul li .dropdown-menu {
         position: static;
@@ -86,17 +96,17 @@
   </style>
   <script>
     // Dropdown open on hover and click
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var dropdown = document.querySelector('.navbar ul li.dropdown');
       var toggle = dropdown.querySelector('.dropdown-toggle');
       var menu = dropdown.querySelector('.dropdown-menu');
       // Open on click (for mobile)
-      toggle.addEventListener('click', function(e) {
+      toggle.addEventListener('click', function (e) {
         e.preventDefault();
         dropdown.classList.toggle('open');
       });
       // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (!dropdown.contains(e.target)) {
           dropdown.classList.remove('open');
         }
@@ -109,7 +119,7 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1>Programs & Initiatives</h1>
-          <p>Learn more about how Aurora's Medical Library supports education, research, and community health.</p>
+          <p>Learn more about how Aurora Medical Library supports education, research, and community health.</p>
         </div>
       </div>
     </section>
@@ -118,34 +128,50 @@
       <h2>Our Ongoing Programs</h2>
       <div class="programs-grid">
         <div class="program-card">
+          <img src="images/health-literacy.jpg" alt="Health Literacy Campaign" class="program-image" />
           <h3>Health Literacy Campaign</h3>
-          <p>We visit local communities and schools to share practical health information and promote informed decision-making.</p>
+          <p>We visit local communities and schools to share practical health information and promote informed
+            decision-making.</p>
         </div>
+
         <div class="program-card">
+          <img src="images/research-mentorship.jpg" alt="Research Mentorship" class="program-image" />
           <h3>Research Mentorship</h3>
-          <p>Librarians and faculty members guide students through the process of developing and publishing research projects.</p>
+          <p>Librarians and faculty members guide students through the process of developing and publishing research
+            projects.</p>
         </div>
+
         <div class="program-card">
+          <img src="images/digital-library.jpg" alt="Digital Library Access" class="program-image" />
           <h3>Digital Library Access</h3>
-          <p>Students and researchers can use our online journals, e-books, and databases anytime to support their studies and clinical work.</p>
+          <p>Students and researchers can use our online journals, e-books, and databases anytime to support their
+            studies and clinical work.</p>
         </div>
+
         <div class="program-card">
+          <img src="images/wellness-week.jpg" alt="Wellness Week" class="program-image" />
           <h3>Wellness Week</h3>
-          <p>In partnership with local health units, we host free seminars, check-ups, and discussions on preventive healthcare.</p>
+          <p>In partnership with local health units, we host free seminars, check-ups, and discussions on preventive
+            healthcare.</p>
         </div>
+
         <div class="program-card">
+          <img src="images/library-orientation.jpg" alt="Library Orientation & Skills Training" class="program-image" />
           <h3>Library Orientation & Skills Training</h3>
-          <p>We help new users learn how to find reliable information, cite sources correctly, and make the most of digital research tools.</p>
+          <p>We help new users learn how to find reliable information, cite sources correctly, and make the most of
+            digital research tools.</p>
         </div>
       </div>
     </section>
   </main>
 
+
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 Aurora's Medical Library. All rights reserved.</p>
+    <p>© 2025 Aurora Medical Library. All rights reserved.</p>
   </footer>
 
   <script src="menu.js"></script>
 </body>
+
 </html>

@@ -875,6 +875,18 @@ main {
     font-size: 0.95rem;
 }
 
+/* Program Images */
+.program-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 22px auto;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+}
+
 /* Facilities Grid */
 .facilities-grid {
     display: grid;
